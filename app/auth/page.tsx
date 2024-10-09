@@ -16,7 +16,7 @@ function Auth() {
         <h2>Привіт! {user.email} Ти вже знаходишся на своєму аккаунті</h2>
       </div> 
       : 
-      <div className='w-[90%] sm:w-[375px] h-auto rounded-xl bg-slate-500 pb-5'>
+      <div className='w-[90%] sm:w-[375px] h-auto rounded-xl bg-slate-500 pb-5 px-5'>
         {isHaveAccount ? <Login isAccount={setIsHaveAccount} /> : <Register isAccount={setIsHaveAccount} />}
       </div>
       }

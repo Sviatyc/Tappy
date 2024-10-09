@@ -25,7 +25,7 @@ function Login({ isAccount }: Props) {
   };
 
   return (
-    <form className='flex flex-col px-10 mt-10 gap-1' onSubmit={handleSubmit}>
+    <form className='flex flex-col w-full mt-10 gap-1' onSubmit={handleSubmit}>
       <label className='font-semibold'>Email:</label>
       <input
         type="email"
@@ -44,7 +44,7 @@ function Login({ isAccount }: Props) {
         className='w-full px-1 h-10 rounded-sm text-black'
       />
       
-      <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7'>Login</button>
+      <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7 text-white'>Login</button>
       {error && <p className='text-red-500'>{error}</p>}
       <p>Don&apos;t have an account? 
         <span className='text-red-500 cursor-pointer' onClick={() => isAccount(false)}> 

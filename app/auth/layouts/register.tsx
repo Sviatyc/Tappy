@@ -109,7 +109,7 @@ function Register({ isAccount }: Props) {
   };
 
   return (
-    <form className='flex flex-col items-center mt-10 gap-1 px-10' onSubmit={handleSubmit}>
+    <form className='flex flex-col items-center mt-10 gap-1 w-full' onSubmit={handleSubmit}>
       <label className='font-semibold'>Username:</label>
       <input
         type="text"
@@ -150,7 +150,7 @@ function Register({ isAccount }: Props) {
       />
       {errors.confirmPassword && <p className='text-red-500 text-sm'>{errors.confirmPassword}</p>}
 
-      <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7'>
+      <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7 text-white'>
         Register
       </button>
 
