@@ -3,14 +3,13 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { useAuth } from '../hooks/useAuth'
 import Header from './layouts/header'
 import {useCurrentUser} from '@/app/hooks/useCurrentUser'
 
 
 function Tappy() {
   const router = useRouter()
-  const {user, loading, error} = useCurrentUser()
+  const {user, loading} = useCurrentUser()
   useEffect(() => {
     if (user) {
       router.push('/auth');

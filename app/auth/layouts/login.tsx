@@ -46,7 +46,7 @@ function Login({ isAccount }: Props) {
       
       <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7'>Login</button>
       {error && <p className='text-red-500'>{error}</p>}
-      <p>Don't have an account? 
+      <p>Don&apos;t have an account? 
         <span className='text-red-500 cursor-pointer' onClick={() => isAccount(false)}> 
           You can register!
         </span>

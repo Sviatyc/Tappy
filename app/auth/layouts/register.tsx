@@ -66,7 +66,7 @@ function Register({ isAccount }: Props) {
   };
 
   const validateForm = async () => {
-    let formErrors: { username?: string; email?: string; password?: string; confirmPassword?: string } = {};
+    const formErrors: { username?: string; email?: string; password?: string; confirmPassword?: string } = {};
 
     if (!username) {
       formErrors.username = 'Username is required';

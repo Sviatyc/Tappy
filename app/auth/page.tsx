@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Login from './layouts/login';
 import Register from './layouts/register';
-import {auth} from '@/app/firebase/firebase'
 import { useAuth } from '../hooks/useAuth';
 
 function Auth() {
