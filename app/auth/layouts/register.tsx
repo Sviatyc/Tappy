@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import createUserWithCredential from '@/app/api/createUserWithCredential';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { FirebaseError } from "firebase/app";
+import { FirebaseError } from 'firebase/app';
+import { useRouter } from 'next/navigation';
 import { db } from '@/app/firebase/firebase';
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
+
 type Props = {
   isAccount: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -13,6 +17,7 @@ function Register({ isAccount }: Props) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState<{ username?: string; email?: string; password?: string; confirmPassword?: string }>({});
+  const router = useRouter()
 
   const checkUsernameExists = async (username: string): Promise<boolean> => {
     const usersRef = collection(db, 'users');
@@ -23,38 +28,24 @@ function Register({ isAccount }: Props) {
 
   const createUser = async () => {
     try {
-        await createUserWithCredential({ email, password, username });
+      await createUserWithCredential({ email, password, username });
+      router.push('/tappy')
+      toast.success('Реєстрація успішна!');
     } catch (error) {
-        setErrors({});
-        if (error instanceof FirebaseError) {
-            if (error.code === 'auth/email-already-in-use') {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    email: 'Ця електронна адреса вже зареєстрована.',
-                }));
-            } else if (error.code === 'auth/invalid-email') {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    email: 'Некоректна електронна адреса.',
-                }));
-            } else {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    email: 'Сталася помилка під час реєстрації. Спробуйте ще раз.',
-                }));
-            }
+      setErrors({});
+      if (error instanceof FirebaseError) {
+        if (error.code === 'auth/email-already-in-use') {
+          toast.error('Ця електронна адреса вже зареєстрована.'); 
+        } else if (error.code === 'auth/invalid-email') {
+          toast.error('Некоректна електронна адреса.'); 
         } else {
-            setErrors((prevErrors) => ({
-                ...prevErrors,
-                email: 'Сталася невідома помилка. Спробуйте ще раз.',
-            }));
+          toast.error('Сталася помилка під час реєстрації. Спробуйте ще раз.'); 
         }
+      } else {
+        toast.error('Сталася невідома помилка. Спробуйте ще раз.');
+      }
     }
-};
-
-
-  
-  
+  };
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,6 +67,7 @@ function Register({ isAccount }: Props) {
       const usernameExists = await checkUsernameExists(username);
       if (usernameExists) {
         formErrors.username = 'Username is already taken';
+        toast.error('Це ім’я вже зайнято.'); 
       }
     }
 
@@ -109,58 +101,69 @@ function Register({ isAccount }: Props) {
   };
 
   return (
-    <form className='flex flex-col items-center mt-10 gap-1 w-full' onSubmit={handleSubmit}>
-      <label className='font-semibold'>Username:</label>
-      <input
-        type="text"
-        placeholder='Username'
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        className={`w-full px-1 h-10 rounded-sm text-black ${errors.username ? 'border-red-500 border' : ''}`}
+    <>
+      <form className='flex flex-col items-center mt-10 gap-1 w-full' onSubmit={handleSubmit}>
+        <label className='font-semibold'>Username:</label>
+        <input
+          type="text"
+          placeholder='Username'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className={`w-full px-1 h-10 rounded-sm text-black ${errors.username ? 'border-red-500 border' : ''}`}
+        />
+        {errors.username && <p className='text-red-500 text-sm'>{errors.username}</p>}
+
+        <label className='mt-1 font-semibold'>Email:</label>
+        <input
+          type="email"
+          placeholder='Email'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={`w-full px-1 h-10 rounded-sm text-black ${errors.email ? 'border-red-500 border' : ''}`}
+        />
+        {errors.email && <p className='text-red-500 text-sm'>{errors.email}</p>}
+
+        <label className='mt-1 font-semibold'>Password:</label>
+        <input
+          type="password"
+          placeholder='Password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={`w-full px-1 h-10 rounded-sm text-black ${errors.password ? 'border-red-500 border' : ''}`}
+        />
+        {errors.password && <p className='text-red-500 text-sm'>{errors.password}</p>}
+
+        <label className='mt-1 font-semibold'>Confirm password:</label>
+        <input
+          type="password"
+          placeholder='Confirm password'
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className={`w-full px-1 h-10 rounded-sm text-black ${errors.confirmPassword ? 'border-red-500 border' : ''}`}
+        />
+        {errors.confirmPassword && <p className='text-red-500 text-sm'>{errors.confirmPassword}</p>}
+
+        <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7 text-white'>
+          Register
+        </button>
+
+        <p>
+          Already have an account?{' '}
+          <span className='text-red-500 cursor-pointer' onClick={() => isAccount(true)}>
+            You can login!
+          </span>
+        </p>
+      </form>
+      <ToastContainer 
+        position="top-right"
+        autoClose={3000} 
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
       />
-      {errors.username && <p className='text-red-500 text-sm'>{errors.username}</p>}
-
-      <label className='mt-1 font-semibold'>Email:</label>
-      <input
-        type="email"
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={`w-full px-1 h-10 rounded-sm text-black ${errors.email ? 'border-red-500 border' : ''}`}
-      />
-      {errors.email && <p className='text-red-500 text-sm'>{errors.email}</p>}
-
-      <label className='mt-1 font-semibold'>Password:</label>
-      <input
-        type="password"
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className={`w-full px-1 h-10 rounded-sm text-black ${errors.password ? 'border-red-500 border' : ''}`}
-      />
-      {errors.password && <p className='text-red-500 text-sm'>{errors.password}</p>}
-
-      <label className='mt-1 font-semibold'>Confirm password:</label>
-      <input
-        type="password"
-        placeholder='Confirm password'
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        className={`w-full px-1 h-10 rounded-sm text-black ${errors.confirmPassword ? 'border-red-500 border' : ''}`}
-      />
-      {errors.confirmPassword && <p className='text-red-500 text-sm'>{errors.confirmPassword}</p>}
-
-      <button type="submit" className='w-full h-[40px] rounded-md bg-slate-800 mt-7 text-white'>
-        Register
-      </button>
-
-      <p>
-        Already have an account?{' '}
-        <span className='text-red-500 cursor-pointer' onClick={() => isAccount(true)}>
-          You can login!
-        </span>
-      </p>
-    </form>
+    </>
   );
 }
 
