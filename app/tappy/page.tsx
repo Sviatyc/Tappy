@@ -14,7 +14,7 @@ function Tappy() {
     if (user) {
       router.push('/auth');
     }
-  }, [router]);
+  }, [router, user]);
   if(loading) return <p className='text-center'>Loading...</p>
   return(
     <div>
