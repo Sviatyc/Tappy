@@ -11,7 +11,7 @@ function Tappy() {
 
   if(loading) return <p className='text-center'>Loading...</p>
   return(
-    <div>
+    <div className={`${user ? 'block' : 'hidden'}`}>
       <Header username={String(user?.username)}/>
     </div>
   )
