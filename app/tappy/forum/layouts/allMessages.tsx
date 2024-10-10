@@ -27,7 +27,7 @@ function AllMessages() {
   }, []); 
 
   return (
-    <section className='flex justify-start gap-1 flex-wrap mt-5'>
+    <section className='flex justify-center sm:justify-start gap-1 flex-wrap mt-5'>
       {loading ? (
         <p>Loading...</p> 
       ) : (

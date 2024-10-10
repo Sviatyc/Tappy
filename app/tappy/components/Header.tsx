@@ -18,7 +18,7 @@ function Header() {
   });
 
   return (
-    <header className="w-full h-[60px] flex flex-col justify-between mb-5 items-center px-10 mt-3 sm:px-20">
+    <header className="w-full h-[60px] flex flex-col justify-between mb-7 items-center px-10 mt-3 sm:px-20">
       <div className="w-full flex justify-between items-center">
         <div className="flex flex-col">
           <p>Привіт, {user?.username}</p>

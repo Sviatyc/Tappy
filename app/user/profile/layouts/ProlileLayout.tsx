@@ -64,7 +64,7 @@ function ProfileLayout({ visible }: Props) {
 
   return (
     <div className="flex justify-center w-[90%] h-full">
-      <div className="w-10/12 h-[40vh] sm:h-[80vh] bg-white rounded-[20px] shadow-2xl mt-8">
+      <div className="w-10/12 max-h-[350px] h-[80vh] sm:max-h-[100%] sm:h-[80vh] bg-white rounded-[20px] shadow-2xl mt-8">
         <div className="bg-gradient-to-r from-[#b6d3f1] to-[#fdf7e1] h-[100px] w-full rounded-t-[20px]"></div>
         <div className="px-[30px] mt-[30px]">
           <div className="flex sm:justify-between justify-center sm:items-center sm:flex-row flex-col">
