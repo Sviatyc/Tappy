@@ -14,15 +14,14 @@ function MessageCard({ likedBy, message, username, messageId }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const isLikedByCurrentUser = likedBy.includes(auth.currentUser?.uid || '');
 
-  // Максимальна кількість символів, після яких текст буде обрезаний
-  const maxCharacters = 50; // Ви можете змінити це значення
+  const maxCharacters = 50; 
 
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <div className='w-[300px] h-auto rounded-lg flex flex-col justify-between bg-gray-200 border-2 border-pink-200 py-1 px-3'>
+    <div className='w-[300px] object-none rounded-lg flex flex-col justify-between bg-gray-200 border-2 border-pink-200 py-1 px-3'>
       <div>
         <p className='font-bold mt-1'>{username}</p>
         <div className='bg-slate-100 rounded-md p-1 mt-2'>
