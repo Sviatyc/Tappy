@@ -16,6 +16,8 @@ const createUserWithCredential = async ({ username, email, password }: Props) =>
             email: auth.currentUser?.email,
             id: auth.currentUser?.uid,
             role: 'user',
+            level: 1,
+            image: '',
             messages: []
 
         });

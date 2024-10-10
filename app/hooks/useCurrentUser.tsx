@@ -23,7 +23,9 @@ import { IUser } from "../types/userType";
                 username: userData?.username || "Unknown",
                 email: userData?.email || currentUser.email || "",
                 role: userData?.role || "user",
-                messages: userData?.message || ""
+                messages: userData?.message || "",
+                image: userData?.image || "https://imgcdn.stablediffusionweb.com/2024/6/7/09001582-ae8e-40c9-9334-d7716dd933bd.jpg",
+                level: userData?.level || 0
               });
             } else {
               console.log("No such user data!");

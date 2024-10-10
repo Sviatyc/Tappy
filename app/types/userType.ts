@@ -4,4 +4,6 @@ export interface IUser {
     email: string
     role: string
     messages?: string[]
+    level: number
+    image: string
 }

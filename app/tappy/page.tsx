@@ -1,25 +1,23 @@
 'use client'
-
 import React from 'react'
-import Header from './layouts/header'
-import {useCurrentUser} from '@/app/hooks/useCurrentUser'
+import MainLayout from './layouts/MainLayout'
+import NavigateCard from './components/NavigateCard'
 import { useAuth } from '../hooks/useAuth'
-import AddMessage from './components/addMessage'
-import AllMessages from './layouts/allMessages'
 
 function Tappy() {
-  const {user} = useCurrentUser()
-  const {loading} = useAuth()
+    const {loading} = useAuth()
 
-  if(loading) return <p className='text-center'>Loading...</p>
-  return(
-    <main className='relative w-screen h-screen'>
-      <Header username={String(user?.username)}/>
-      <div className='px-20'>
-        <AllMessages />
-        <AddMessage />
-      </div>
-    </main>
+    if(loading) return <p className='text-center'>Loading...</p>
+  return (
+    <MainLayout>
+        <div className='w-screen h-screen flex justify-center items-center'>
+            <div className='w-[85%] sm:w-[70%] flex flex-wrap justify-between gap-2'>
+                <NavigateCard nav='/tappy/forum' text='Форум' className='bg-purple-600 sm:w-[49%] w-[100%]'/>
+                <NavigateCard nav='/tappy/game' text='Потапати' className='bg-green-600 sm:w-[49%] w-[100%]'/>
+                <NavigateCard nav='/user/profile' text='Профіль' className='bg-red-500 w-[100%]'/>
+            </div>
+        </div>
+    </MainLayout>
   )
 }
 
