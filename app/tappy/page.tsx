@@ -1,8 +1,13 @@
+'use client'
 import React from 'react'
 import MainLayout from './layouts/MainLayout'
 import NavigateCard from './components/NavigateCard'
+import { useAuth } from '../hooks/useAuth'
 
 function Tappy() {
+    const {loading} = useAuth()
+
+    if(loading) return <p className='text-center'>Loading...</p>
   return (
     <MainLayout>
         <div className='w-screen h-screen flex justify-center items-center'>
