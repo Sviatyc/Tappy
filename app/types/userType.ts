@@ -6,4 +6,5 @@ export interface IUser {
     messages?: string[]
     level: number
     image: string
+    chiken: string
 }

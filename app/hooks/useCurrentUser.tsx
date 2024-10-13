@@ -25,7 +25,8 @@ import { IUser } from "../types/userType";
                 role: userData?.role || "user",
                 messages: userData?.message || "",
                 image: userData?.image || "https://imgcdn.stablediffusionweb.com/2024/6/7/09001582-ae8e-40c9-9334-d7716dd933bd.jpg",
-                level: userData?.level || 0
+                level: userData?.level || 0,
+                chiken: userData?.chiken 
               });
             } else {
               console.log("No such user data!");

@@ -19,12 +19,20 @@
       </feMerge>
     </filter>
   </defs>
-  
+
   <ellipse cx="100" cy="150" rx="90" ry="130" fill="url(#eggGradient)" />
   <ellipse cx="90" cy="140" rx="60" ry="90" fill="url(#highlight)" />
   <ellipse cx="100" cy="160" rx="85" ry="120" fill="rgba(255, 255, 255, 0.1)" />
-  
+
   <ellipse cx="100" cy="150" rx="90" ry="130" fill="none" filter="url(#glow)">
     <animate attributeName="opacity" values="0.2; 1; 0.2" dur="1.5s" repeatCount="indefinite" />
   </ellipse>
+
+  <!-- Більше тріщин -->
+  <path d="M 40 190 L 60 170 L 80 190 L 100 170 L 120 190" stroke="#3b2f1c" stroke-width="4" fill="none" />
+  <path d="M 50 210 L 70 190 L 90 210 L 110 190 L 130 210" stroke="#3b2f1c" stroke-width="4" fill="none" />
+  <path d="M 60 230 L 80 210 L 100 230 L 120 210 L 140 230" stroke="#3b2f1c" stroke-width="4" fill="none" />
+  <path d="M 70 250 L 90 230 L 110 250 L 130 230 L 150 250" stroke="#3b2f1c" stroke-width="4" fill="none" />
+  <path d="M 100 270 L 110 250 L 130 260 L 140 240" stroke="#3b2f1c" stroke-width="4" fill="none" />
+  <path d="M 120 180 L 140 160 L 160 180 L 170 160" stroke="#3b2f1c" stroke-width="4" fill="none" />
 </svg>

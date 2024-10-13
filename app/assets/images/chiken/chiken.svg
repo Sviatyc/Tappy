@@ -1,0 +1,71 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  width="200"
+  height="200"
+>
+  <!-- Body -->
+  <ellipse
+    cx="100"
+    cy="120"
+    rx="60"
+    ry="40"
+    fill="yellow"
+  />
+  <!-- Head -->
+  <circle
+    cx="100"
+    cy="70"
+    r="30"
+    fill="yellow"
+  />
+  <!-- Eye -->
+  <circle
+    cx="90"
+    cy="65"
+    r="5"
+    fill="black"
+  />
+  <circle
+    cx="110"
+    cy="65"
+    r="5"
+    fill="black"
+  />
+  <!-- Beak -->
+  <polygon
+    points="100,75 115,80 100,85"
+    fill="orange"
+  />
+  <!-- Comb -->
+  <path
+    d="M85,55 Q80,40 90,45 Q95,40 100,45 Q105,40 110,45 Q120,40 115,55"
+    fill="red"
+  />
+  <!-- Wing -->
+  <ellipse
+    cx="130"
+    cy="120"
+    rx="15"
+    ry="10"
+    fill="yellow"
+    opacity="0.5"
+  />
+  <!-- Legs -->
+  <line
+    x1="80"
+    y1="155"
+    x2="80"
+    y2="170"
+    stroke="orange"
+    stroke-width="4"
+  />
+  <line
+    x1="120"
+    y1="155"
+    x2="120"
+    y2="170"
+    stroke="orange"
+    stroke-width="4"
+  />
+</svg>

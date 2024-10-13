@@ -1,0 +1,113 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 200 200"
+  width="200"
+  height="200"
+>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
+      <feFlood flood-color="#ffd700" />
+      <feComposite in2="SourceAlpha" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Body -->
+  <ellipse
+    cx="100"
+    cy="120"
+    rx="60"
+    ry="40"
+    fill="gold"
+    filter="url(#glow)"
+  />
+  <!-- Head -->
+  <circle
+    cx="100"
+    cy="70"
+    r="30"
+    fill="gold"
+    filter="url(#glow)"
+  />
+  <!-- Eye -->
+  <circle
+    cx="90"
+    cy="65"
+    r="5"
+    fill="black"
+  />
+  <circle
+    cx="110"
+    cy="65"
+    r="5"
+    fill="black"
+  />
+  <!-- Beak -->
+  <polygon
+    points="100,75 115,80 100,85"
+    fill="orange"
+  />
+  <!-- Comb -->
+  <path
+    d="M85,55 Q80,40 90,45 Q95,40 100,45 Q105,40 110,45 Q120,40 115,55"
+    fill="red"
+  />
+  <!-- Wings -->
+  <ellipse
+    cx="130"
+    cy="120"
+    rx="15"
+    ry="10"
+    fill="gold"
+    opacity="0.5"
+    filter="url(#glow)"
+  />
+  <ellipse
+    cx="70"
+    cy="120"
+    rx="15"
+    ry="10"
+    fill="gold"
+    opacity="0.5"
+    filter="url(#glow)"
+  />
+  <!-- Legs -->
+  <line
+    x1="80"
+    y1="155"
+    x2="80"
+    y2="170"
+    stroke="orange"
+    stroke-width="4"
+  />
+  <line
+    x1="120"
+    y1="155"
+    x2="120"
+    y2="170"
+    stroke="orange"
+    stroke-width="4"
+  />
+  <!-- Legend Text -->
+  <text
+    x="50"
+    y="190"
+    font-family="Arial, sans-serif"
+    font-size="18"
+    fill="gold"
+    filter="url(#glow)"
+  >
+    ЛЕГЕНДАРНА КУРКА
+  </text>
+  <!-- Stars for legendary effect -->
+  <circle cx="40" cy="30" r="3" fill="white" />
+  <circle cx="160" cy="30" r="3" fill="white" />
+  <circle cx="20" cy="150" r="3" fill="white" />
+  <circle cx="180" cy="150" r="3" fill="white" />
+  <circle cx="100" cy="30" r="3" fill="white" />
+  <circle cx="100" cy="150" r="3" fill="white" />
+</svg>
