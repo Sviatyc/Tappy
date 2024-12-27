@@ -18,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddMessage() {
     const [message, setMessage] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false); 
-    const maxLength = 100;
+    const maxLength = 150;
 
     const handleSendMessage = async () => {
         const trimmedMessage = message.trim(); 

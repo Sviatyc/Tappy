@@ -30,7 +30,7 @@ function Header() {
             alt="user image"
             width={70}
             height={70}
-            className="rounded-[10px] absolute z-10 w-10 h-10 right-0 cursor-pointer"
+            className="rounded-[10px] absolute z-10 w-10 h-10 right-0 bg-slate-100 cursor-pointer object-cover"
             onClick={() => router.push('/user/profile')}
           />
           <button
