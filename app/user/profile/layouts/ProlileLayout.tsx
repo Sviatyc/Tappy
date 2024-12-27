@@ -14,6 +14,7 @@ type Props = {
 }
 
 function ProfileLayout({ visible }: Props) {
+  const [openImage, setOpenImage] = useState<boolean>(false)
   const { user } = useCurrentUser();
   const [another, setAnother] = useState<IUser | null>(null);
   const [userNotFound, setUserNotFound] = useState(false); 
@@ -64,6 +65,12 @@ function ProfileLayout({ visible }: Props) {
 
   return (
     <div className="flex justify-center w-[90%] h-full">
+      <div className={`w-screen h-screen ${openImage ? 'flex' : 'hidden'} justify-center items-center absolute bg-[#000000be]`} onClick={()=>setOpenImage(false)}>
+        <div className='max-w-[300px] max-h-[500px] rounded-[20px] border-black border-[0.5px] bg-cyan-50 relative'>
+          <Image className='rounded-[17px]' width={300} height={500} src={visible ? user?.image || noImage : another?.image || noImage} alt='openImage'/>
+          <span className='w-5 h-5 bg-black text-white absolute top-2 right-2 flex justify-center items-center rounded-lg cursor-pointer uppercase text-[10px]'>x</span>
+        </div>
+      </div>
       <div className="w-10/12 max-h-[350px] h-[80vh] sm:max-h-[100%] sm:h-[80vh] bg-white rounded-[20px] shadow-2xl mt-8">
         <div className="bg-gradient-to-r from-[#b6d3f1] to-[#fdf7e1] h-[100px] w-full rounded-t-[20px]"></div>
         <div className="px-[30px] mt-[30px]">
@@ -78,7 +85,8 @@ function ProfileLayout({ visible }: Props) {
                 alt="userPhoto"
                 width={80}
                 height={80}
-                className="w-12 h-12 sm:w-20 sm:h-20 rounded-full"
+                className="w-12 h-12 sm:w-20 sm:h-20 rounded-full object-cover cursor-pointer"
+                onClick={()=>setOpenImage(true)}
               />
               <div className="flex flex-col">
                 <p className="text-[18px] font-medium">{visible ? user?.username : another?.username}</p>
