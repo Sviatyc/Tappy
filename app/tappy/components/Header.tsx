@@ -10,7 +10,7 @@ import Image from 'next/image'
 import noImage from '@/app/assets/noImage.jpg'
 
 type Props = {
-  formattedDate: String
+  formattedDate: string
 }
 
 function Header({formattedDate}: Props) {

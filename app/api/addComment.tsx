@@ -1,5 +1,5 @@
 import { updateDoc, doc, getDoc } from 'firebase/firestore'
-import { db, auth } from '../firebase/firebase'
+import { db } from '../firebase/firebase'
 import { commentType } from '../types/commentType'
 
 
@@ -25,7 +25,7 @@ export const addComment = async (messageId: string, commentText: string, senderI
     await updateDoc(docRef, {
       comments
     })
-  } catch (err: any) {
+  } catch (err) {
     console.error('Error adding comment:', err)
     throw new Error('Failed to add comment.')
   }

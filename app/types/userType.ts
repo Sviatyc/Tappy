@@ -5,5 +5,5 @@ export interface IUser {
     role: string
     messages?: string[]
     level: number
-    image: string
+    image?: string
 }
