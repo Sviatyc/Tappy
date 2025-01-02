@@ -8,7 +8,7 @@ function Main() {
   return (
     <div className='px-5 md:px-20 w-screen h-screen'>
       <div className='flex flex-col items-center'>
-        <h1 className='text-4xl font-bold text-center mt-10'>Вас вітає <br className='sm:hidden'/> <span className='text-orange-600'>Sence Triad</span>!</h1>
+        <h1 className='text-4xl font-bold text-center mt-10'>Вас вітає <br className='sm:hidden'/> <span className='text-orange-600'>Sense Triad</span>!</h1>
         <h2 className='text-2x text-center font-semibold mt-1'>Тут ми починаємо наш спільний проект Tappy, в якому участь зможе взяти кожен!</h2>
         <div className='flex flex-col gap-1 items-start mt-10 w-full'>
           <h3 className='text-3xl font-bold text-purple-600'>Запропонуй свою ідею: </h3>

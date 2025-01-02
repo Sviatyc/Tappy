@@ -39,6 +39,7 @@ function AllMessages() {
             messageId={message.id}
             username={message.username || 'Unknown User'} 
             sender={message.sender}
+            comments={message.comments || []}
           />
         ))
       )}
