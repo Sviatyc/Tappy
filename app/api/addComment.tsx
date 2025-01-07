@@ -1,6 +1,6 @@
 import { updateDoc, doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase/firebase'
-import { commentType } from '../types/commentType'
+import { IcommentType } from '../types/commentType'
 
 
 export const addComment = async (messageId: string, commentText: string, senderId: string) => {
@@ -11,9 +11,9 @@ export const addComment = async (messageId: string, commentText: string, senderI
     if (!docSnap.exists()) throw new Error('Message not found')
 
     const data = docSnap.data()
-    const comments: commentType[] = data?.comments || []
+    const comments: IcommentType[] = data?.comments || []
 
-    const newComment: commentType = {
+    const newComment: IcommentType = {
       commentId: new Date().getTime().toString(), 
       comment: commentText,
       likedBy: [],

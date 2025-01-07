@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, SendHorizontal } from "lucide-react";
-import { commentType } from "@/app/types/commentType";
+import { IcommentType } from "@/app/types/commentType";
 import { getUserById } from "@/app/api/getUserById";
 import { useEffect, useState } from "react";
 import CommentCard from "./CommentCard";
@@ -17,7 +17,7 @@ import { IUser } from "@/app/types/userType";
 type Props = {
   message: string;
   username: string;
-  comments: commentType[];
+  comments: IcommentType[];
   likedBy: string[];
   messageId: string;
 };
@@ -32,7 +32,7 @@ function CommentButton({ message, username, comments, likedBy, messageId }: Prop
     const fetchCommentUsers = async () => {
       try {
         const userPromises = comments.map((e) => getUserById(e.senderId));
-        const info = await Promise.all(userPromises) as IUser[]; // Явне приведення типу
+        const info = await Promise.all(userPromises) as IUser[]; 
         setCommentUser(info);
       } catch (err) {
         console.error(err);

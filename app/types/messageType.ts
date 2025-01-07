@@ -1,4 +1,4 @@
-import { commentType } from "./commentType"
+import { IcommentType } from "./commentType"
 
 export interface IMessage {
     id: string
@@ -7,5 +7,5 @@ export interface IMessage {
     likedBy: [string]
     timestamp: string
     username?: string | undefined
-    comments?: commentType[]
+    comments?: IcommentType[]
 }

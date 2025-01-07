@@ -1,13 +1,13 @@
 import React from "react";
 import { Heart } from "lucide-react";
-import { commentType } from "@/app/types/commentType";
+import { IcommentType } from "@/app/types/commentType";
 import { IUser } from "@/app/types/userType";
 import { auth } from "@/app/firebase/firebase";
 import { toggleLikeComment } from "@/app/api/toggleLikeComment";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 type Props = {
-  comments: commentType[];
+  comments: IcommentType[];
   commentUser: IUser[];
   likedBy: string[];
   messageId: string;
@@ -35,6 +35,8 @@ function CommentCard({ comments, commentUser, messageId }: Props) {
               <div className="w-auto">
                 {commentUser && commentUser[index] ? (
                   <Image
+                    width={12}
+                    height={12}
                     src={
                       commentUser[index].image ||
                       "https://imgcdn.stablediffusionweb.com/2024/6/7/09001582-ae8e-40c9-9334-d7716dd933bd.jpg"

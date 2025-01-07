@@ -4,7 +4,7 @@ import { toggleLike } from '@/app/api/toggleLike';
 import { auth } from '@/app/firebase/firebase';
 import { useRouter } from 'next/navigation';
 import CommentButton from './commentButton';
-import {commentType} from '@/app/types/commentType' 
+import {IcommentType} from '@/app/types/commentType' 
 
 type Props = {
   likedBy: string[];
@@ -12,7 +12,7 @@ type Props = {
   username: string;
   messageId: string;
   sender: string
-  comments: commentType[]
+  comments: IcommentType[]
 };
 
 function MessageCard({ likedBy, message, username, messageId, sender, comments }: Props) {

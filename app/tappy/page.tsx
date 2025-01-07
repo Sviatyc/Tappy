@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import NavigateCard from './components/NavigateCard'
-import { useAuth } from '../hooks/useAuth'
+import NavigateCard from '@/app/tappy/components/NavigateCard'
+import { useAuth } from '@/app/hooks/useAuth'
 
 function Tappy() {
     const {loading} = useAuth()

@@ -1,6 +1,6 @@
 import { updateDoc, doc, getDoc } from 'firebase/firestore'
 import { db, auth } from '../firebase/firebase'
-import {commentType} from '@/app/types/commentType'
+import {IcommentType} from '@/app/types/commentType'
 
 export const toggleLikeComment = async (messageId: string, commentId: string) => {
     try {
@@ -15,7 +15,7 @@ export const toggleLikeComment = async (messageId: string, commentId: string) =>
         const data = docSnap.data()
         const comments = data?.comments || []
 
-        const commentIndex = comments.findIndex((comment: commentType) => comment.commentId === commentId)
+        const commentIndex = comments.findIndex((comment: IcommentType) => comment.commentId === commentId)
         if (commentIndex === -1) throw new Error('Comment not found')
 
         const comment = comments[commentIndex]
