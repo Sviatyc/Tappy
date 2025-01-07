@@ -3,8 +3,8 @@ import {
   DialogContent,
   DialogTrigger,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+} from "@/app/components/ui/dialog";
+import { Input } from "@/app/components/ui/input";
 import { MessageCircle, SendHorizontal } from "lucide-react";
 import { IcommentType } from "@/app/types/commentType";
 import { getUserById } from "@/app/api/getUserById";

@@ -7,7 +7,7 @@ import { getUserById } from '@/app/api/getUserById';
 import { useParams } from 'next/navigation';
 import { IUser } from '@/app/types/userType';
 import Image from 'next/image';
-import noImage from '@/app/assets/noImage.jpg';
+import noImage from '@/public/assets/noImage.jpg';
 
 type Props = {
   visible: boolean;

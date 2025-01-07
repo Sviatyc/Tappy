@@ -5,8 +5,8 @@ import { storage, db } from '@/app/firebase/firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { doc, updateDoc } from 'firebase/firestore'; 
 import { toast } from 'react-toastify';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import { Label } from '@/app/components/ui/label';
+import { Input } from '@/app/components/ui/input';
 
 interface ProfileImageUploaderProps {
   userId: string;

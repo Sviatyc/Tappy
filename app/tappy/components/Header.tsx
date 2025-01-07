@@ -7,7 +7,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useCurrentUser } from '@/app/hooks/useCurrentUser'
 import Image from 'next/image'
-import noImage from '@/app/assets/noImage.jpg'
+import noImage from '@/public/assets/noImage.jpg'
 
 type Props = {
   formattedDate: string

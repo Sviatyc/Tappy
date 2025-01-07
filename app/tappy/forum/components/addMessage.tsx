@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sendMessage } from '@/app/api/sendMessage';
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,9 +9,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Textarea } from '@/components/ui/textarea';
+} from "@/app/components/ui/dialog";
+import { Label } from "@/app/components/ui/label";
+import { Textarea } from '@/app/components/ui/textarea';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
 
