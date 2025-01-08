@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import Login from './layouts/login';
 import Register from './layouts/register';
 import { useAuth } from '../hooks/useAuth';
+import Loading from '../components/ui/Loading';
 
 function Auth() {
   const [isHaveAccount, setIsHaveAccount] = useState<boolean>(true);
   const {loading, user} = useAuth()
 
-  return loading ? <p>Loading...</p> : (
+  return loading ? <Loading /> : (
     <div className='w-screen h-screen flex justify-center items-center'>
       {user?.email ? 
       <div>

@@ -10,6 +10,7 @@ import { RootState } from '@/app/store/store'
 import { useCurrentUser } from '@/app/hooks/useCurrentUser'
 import Image from 'next/image'
 import noImage from '@/public/assets/noImage.jpg'
+import Loading from '@/app/components/ui/Loading'
 
 type Props = {
   formattedDate: string
@@ -21,7 +22,7 @@ function Header({formattedDate}: Props) {
 
   const user = useSelector((state: RootState) => state.user.user); 
   if(loading){
-    return <p>Loading...</p>
+    return <Loading />
   }
   return (
     <header className="w-full h-[60px] flex flex-col justify-between mb-7 items-center px-10 mt-3 sm:px-20">

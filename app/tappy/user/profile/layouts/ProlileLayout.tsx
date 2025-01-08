@@ -10,6 +10,7 @@ import { RootState } from '@/app/store/store'
 import Image from 'next/image';
 import noImage from '@/public/assets/noImage.jpg';
 import { useSelector } from 'react-redux';
+import Loading from '@/app/components/ui/Loading';
 type Props = {
   visible: boolean;
 }
@@ -57,7 +58,7 @@ function ProfileLayout({ visible }: Props) {
   }, [router.userId]);
   
   if(loading){
-    return <p>Loading...</p>
+    return <Loading />
   }
   
   if (userNotFound) {
