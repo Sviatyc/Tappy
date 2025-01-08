@@ -5,6 +5,8 @@ import { signOut } from 'firebase/auth'
 import { LogOut } from 'lucide-react'
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/app/store/store'
 import { useCurrentUser } from '@/app/hooks/useCurrentUser'
 import Image from 'next/image'
 import noImage from '@/public/assets/noImage.jpg'
@@ -15,8 +17,12 @@ type Props = {
 
 function Header({formattedDate}: Props) {
   const router = useRouter();
-  const { user } = useCurrentUser();
-  
+  const {loading} = useCurrentUser()
+
+  const user = useSelector((state: RootState) => state.user.user); 
+  if(loading){
+    return <p>Loading...</p>
+  }
   return (
     <header className="w-full h-[60px] flex flex-col justify-between mb-7 items-center px-10 mt-3 sm:px-20">
       <div className="w-full flex justify-between items-center">

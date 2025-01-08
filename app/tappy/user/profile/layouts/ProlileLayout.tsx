@@ -6,31 +6,34 @@ import ProfileImageUploader from '../components/ProfileImageUploader';
 import { getUserById } from '@/app/api/getUserById';
 import { useParams } from 'next/navigation';
 import { IUser } from '@/app/types/userType';
+import { RootState } from '@/app/store/store'
 import Image from 'next/image';
 import noImage from '@/public/assets/noImage.jpg';
-
+import { useSelector } from 'react-redux';
 type Props = {
   visible: boolean;
 }
 
 function ProfileLayout({ visible }: Props) {
+  const {loading} = useCurrentUser()
   const [openImage, setOpenImage] = useState<boolean>(false)
-  const { user } = useCurrentUser();
+  const user = useSelector((state: RootState) => state.user.user); 
   const [another, setAnother] = useState<IUser | null>(null);
   const [userNotFound, setUserNotFound] = useState(false); 
   const router = useParams();
 
+  
   useEffect(() => {
     const fetchUser = async () => {
       if (router.userId) {
         try {
           const userData = await getUserById(String(router.userId));
-
+          
           if (!userData) {
             setUserNotFound(true);
             return;
           }
-
+          
           const anotherUser: IUser = {
             id: router.userId as string,
             username: userData.username || "Unknown",
@@ -40,7 +43,7 @@ function ProfileLayout({ visible }: Props) {
             image: userData.image || "",
             level: userData.level || 0
           };
-
+          
           setAnother(anotherUser);
           setUserNotFound(false); 
         } catch (e) {
@@ -49,10 +52,14 @@ function ProfileLayout({ visible }: Props) {
         }
       }
     };
-
+    
     fetchUser();
   }, [router.userId]);
-
+  
+  if(loading){
+    return <p>Loading...</p>
+  }
+  
   if (userNotFound) {
     return (
       <div className="flex justify-center w-[90%] h-full">
